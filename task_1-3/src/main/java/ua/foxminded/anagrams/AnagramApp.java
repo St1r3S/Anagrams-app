@@ -8,12 +8,12 @@ public class AnagramApp {
 		final Anagram anagram = new AnagramImpl();
 		String reversedString;
 		System.out.print("Input your anagram: ");
-		Scanner input = new Scanner(System.in);
-		String text = input.nextLine();
-		input.close();
+		try (Scanner input = new Scanner(System.in)) {
+			String text = input.nextLine();
 
-		reversedString = anagram.reverse(text);
-		System.out.println(reversedString);
+			reversedString = anagram.reverse(text);
+			System.out.println(reversedString);
+		}
 	}
 
 	public static void main(String... args) {

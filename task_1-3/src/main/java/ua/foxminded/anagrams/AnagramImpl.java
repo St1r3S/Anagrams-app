@@ -5,7 +5,7 @@ public class AnagramImpl implements Anagram {
 	public String reverse(String text) {
 
 		String[] words = text.split(" ");
-		String reversedString = "";
+		StringBuffer reversedString = new StringBuffer(text.length());
 		for (int i = 0; i < words.length; i++) {
 
 			StringBuffer letters = new StringBuffer(words[i]);
@@ -21,8 +21,8 @@ public class AnagramImpl implements Anagram {
 					reverseLetters.insert(c, letters.charAt(c));
 				}
 			}
-			reversedString += reverseLetters + " ";
+			reversedString.append(reverseLetters).append(" ");
 		}
-		return reversedString;
+		return reversedString.toString();
 	}
 }
