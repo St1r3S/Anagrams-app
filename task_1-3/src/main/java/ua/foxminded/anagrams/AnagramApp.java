@@ -6,13 +6,14 @@ public class AnagramApp {
 
 	public void execute() {
 		final Anagram anagram = new AnagramImpl();
-
-		System.out.print("Input your anagram: ");		
+		String reversedString;
+		System.out.print("Input your anagram: ");
 		Scanner input = new Scanner(System.in);
-		String[] words = input.nextLine().split(" ");
+		String text = input.nextLine();
 		input.close();
-		
-		anagram.Reverse(words);
+
+		reversedString = anagram.reverse(text);
+		System.out.println(reversedString);
 	}
 
 	public static void main(String... args) {

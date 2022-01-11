@@ -2,8 +2,10 @@ package main.java.ua.foxminded.anagrams;
 
 public class AnagramImpl implements Anagram {
 	@Override
-	public void Reverse(String[] words) {
-	
+	public String reverse(String text) {
+
+		String[] words = text.split(" ");
+		String reversedString = "";
 		for (int i = 0; i < words.length; i++) {
 
 			StringBuffer letters = new StringBuffer(words[i]);
@@ -19,7 +21,8 @@ public class AnagramImpl implements Anagram {
 					reverseLetters.insert(c, letters.charAt(c));
 				}
 			}
-			System.out.print(reverseLetters + " ");
+			reversedString += reverseLetters + " ";
 		}
+		return reversedString;
 	}
 }
