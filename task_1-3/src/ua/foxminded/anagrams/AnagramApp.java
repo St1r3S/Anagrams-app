@@ -1,4 +1,4 @@
-package main.java.ua.foxminded.anagrams;
+package ua.foxminded.anagrams;
 
 import java.util.Scanner;
 
