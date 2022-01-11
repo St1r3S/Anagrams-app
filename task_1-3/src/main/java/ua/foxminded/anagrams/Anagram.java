@@ -1,6 +1,5 @@
 package main.java.ua.foxminded.anagrams;
 
 public interface Anagram {
-	
-	boolean isPalindrome(String text);
+	void Reverse(String[] words);
 }
