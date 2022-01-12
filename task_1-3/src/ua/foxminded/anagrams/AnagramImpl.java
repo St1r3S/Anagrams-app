@@ -7,13 +7,11 @@ public class AnagramImpl implements Anagram {
 		if (text == null) {
 			throw new IllegalArgumentException("Text can't be null!");
 		}
-		if (text.isEmpty()) {
-			throw new IllegalArgumentException("Text can't be empty!");
-		}
+
 		if (text.trim().isEmpty()) {
-			throw new IllegalArgumentException("Text must contain not only spaces!");
+			return text;
 		}
-			
+
 		String[] words = text.split(" ");
 		StringBuffer reversedString = new StringBuffer(text.length());
 		for (int i = 0; i < words.length; i++) {
@@ -31,7 +29,12 @@ public class AnagramImpl implements Anagram {
 					reverseLetters.insert(c, letters.charAt(c));
 				}
 			}
-			reversedString.append(reverseLetters).append(" ");
+			reversedString.append(reverseLetters);
+		}
+		for (int c = 0; c < text.length(); c++) {
+			if (text.charAt(c) == ' ') {
+				reversedString.insert(c, text.charAt(c));
+			}
 		}
 		return reversedString.toString();
 	}

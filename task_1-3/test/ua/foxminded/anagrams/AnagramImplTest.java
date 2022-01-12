@@ -10,56 +10,66 @@ class AnagramImplTest {
 
 	@Test
 	void shouldVerifySingleCharacterInput() {
-		assertEquals("a ", anagramImpl.reverse("a"));
+		assertEquals("a", anagramImpl.reverse("a"));
 	}
 
 	@Test
 	void shouldVerifySameCharacterInLowerAndUpperCasesMixedInInput() {
-		assertEquals("aAaAaA ", anagramImpl.reverse("AaAaAa"));
+		assertEquals("aAaAaA", anagramImpl.reverse("AaAaAa"));
 	}
 
 	@Test
 	void shouldVerifyMultipleSameCharacterInput() {
-		assertEquals("AAAA ", anagramImpl.reverse("AAAA"));
+		assertEquals("AAAA", anagramImpl.reverse("AAAA"));
 	}
 
 	@Test
 	void shouldVerifyWordWithDifferentLettersInput() {
-		assertEquals("ecapS ", anagramImpl.reverse("Space"));
+		assertEquals("ecapS", anagramImpl.reverse("Space"));
 	}
 
 	@Test
 	void shouldVerifyOnlySymbolsInput() {
-		assertEquals("?./?? ", anagramImpl.reverse("?./??"));
+		assertEquals("?./??", anagramImpl.reverse("?./??"));
 	}
 
 	@Test
 	void shouldVerifySeveralWordsInput() {
-		assertEquals("ecapS aitnemed ", anagramImpl.reverse("Space dementia"));
+		assertEquals("ecapS aitnemed", anagramImpl.reverse("Space dementia"));
 	}
 
 	@Test
 	void shouldVerifySeveralWordsWithNumbersInsteadOfLettersInput() {
-		assertEquals("capS3 a3t3nm1d ", anagramImpl.reverse("Spac3 d3m3nt1a"));
+		assertEquals("capS3 a3t3nm1d", anagramImpl.reverse("Spac3 d3m3nt1a"));
 	}
-
+	
 	@Test
 	void shouldVerifySeveralSpaceInput() {
-		assertThrows(IllegalArgumentException.class, () -> anagramImpl.reverse("\0\0\0\0"));
+		assertEquals("    ", anagramImpl.reverse("    "));
 	}
-
+	
 	@Test
 	void shouldVerifySingleSpaceInput() {
-		assertThrows(IllegalArgumentException.class, () -> anagramImpl.reverse("\0"));
+		assertEquals(" ", anagramImpl.reverse(" "));
+	}
+	
+	@Test
+	void shouldVerifySeveralSpaceBetweenWords() {
+		assertEquals("ecapS   aitnemed", anagramImpl.reverse("Space   dementia"));
+	}
+		
+	@Test
+	void shouldVerifySeveralSpaceAtStartAndInTheEndOFPhrase() {
+		assertEquals("  ecapS   aitnemed   ", anagramImpl.reverse("  Space   dementia   "));
+	}
+	
+	@Test
+	void shouldVerifyOnEmptyString() {
+		assertEquals("", anagramImpl.reverse(""));
 	}
 
 	@Test
 	void shouldThrowExceptionOnNull() {
 		assertThrows(IllegalArgumentException.class, () -> anagramImpl.reverse(null));
-	}
-
-	@Test
-	void shouldThrowExceptionOnEmptyString() {
-		assertThrows(IllegalArgumentException.class, () -> anagramImpl.reverse(""));
 	}
 }
