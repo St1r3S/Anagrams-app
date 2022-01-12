@@ -4,6 +4,16 @@ public class AnagramImpl implements Anagram {
 	@Override
 	public String reverse(String text) {
 
+		if (text == null) {
+			throw new IllegalArgumentException("Text can't be null!");
+		}
+		if (text.isEmpty()) {
+			throw new IllegalArgumentException("Text can't be empty!");
+		}
+		if (text.trim().isEmpty()) {
+			throw new IllegalArgumentException("Text must contain not only spaces!");
+		}
+			
 		String[] words = text.split(" ");
 		StringBuffer reversedString = new StringBuffer(text.length());
 		for (int i = 0; i < words.length; i++) {
