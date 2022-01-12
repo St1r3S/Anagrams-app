@@ -4,6 +4,14 @@ public class AnagramImpl implements Anagram {
 	@Override
 	public String reverse(String text) {
 
+		if (text == null) {
+			throw new IllegalArgumentException("Text can't be null!");
+		}
+
+		if (text.trim().isEmpty()) {
+			return text;
+		}
+
 		String[] words = text.split(" ");
 		StringBuffer reversedString = new StringBuffer(text.length());
 		for (int i = 0; i < words.length; i++) {
@@ -21,7 +29,12 @@ public class AnagramImpl implements Anagram {
 					reverseLetters.insert(c, letters.charAt(c));
 				}
 			}
-			reversedString.append(reverseLetters).append(" ");
+			reversedString.append(reverseLetters);
+		}
+		for (int c = 0; c < text.length(); c++) {
+			if (text.charAt(c) == ' ') {
+				reversedString.insert(c, text.charAt(c));
+			}
 		}
 		return reversedString.toString();
 	}
