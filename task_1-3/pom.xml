@@ -7,6 +7,19 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Reverse string application</name>
 	<description>Reverse user's string application(task 1-3)</description>
+	<dependencies>
+		<dependency>
+			<groupId>org.standardout.org.editorconfig</groupId>
+			<artifactId>editorconfig-core</artifactId>
+			<version>0.12.1.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.7.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<testSourceDirectory>test</testSourceDirectory>
@@ -26,17 +39,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<dependencies>
-		<dependency>
-			<groupId>org.standardout.org.editorconfig</groupId>
-			<artifactId>editorconfig-core</artifactId>
-			<version>0.12.1.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
-			<version>5.7.1</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
 </project>
