@@ -1,2 +1,3 @@
-# task_1-3
+# Anagrams app
 
+Simple java app that reverces strings with additional constraints.
